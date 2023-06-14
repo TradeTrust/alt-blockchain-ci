@@ -17,3 +17,4 @@ jobs:
           base: master
           head: master
           pr_title: Update master from tradetrust/tradetrust-website
+          auto_approve: true
