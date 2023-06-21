@@ -1,22 +1,10 @@
-import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "../../utils";
-
+import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "../utils";
 const originAccount = "0x8d366250A96deBE81C8619459a503a0eEBE33ca6"
-
-before(() => {
-  cy.addMetamaskNetwork({
-    networkName: 'Polygon Mumbai', 
-    rpcUrl: 'https://polygon-mumbai-bor.publicnode.com', 
-    chainId: '80001', 
-    symbol: 'MATIC', 
-    blockExplorer: 'https://mumbai.polygonscan.com', 
-    isTestnet: true
-  })
-});
 
 describe("Reading of Mumbai Network", () => {
   it("should be able to view escrow information", () => {
     cy.visit("/verify");
-    cy.get("input[type=file]").attachFile("ebl-mumbai.json");
+    cy.get("input[type=file]").attachFile("polygon/ebl-mumbai.json");
     cy.get("[data-testid=issue-status]").should("have.text", `Document has been issued`);
     cy.get("[data-testid=identity-status]").should("have.text", `Document issuer has been identified`);
     cy.get("[data-testid=hash-status]").should("have.text", `Document has not been tampered with`);
@@ -26,7 +14,7 @@ describe("Reading of Mumbai Network", () => {
 
   it("should be able to view surrendered escrow information", () => {
     cy.visit("/verify");
-    cy.get("input[type=file]").attachFile("ebl-mumbai-surrendered.json");
+    cy.get("input[type=file]").attachFile("polygon/ebl-mumbai-surrendered.json");
     cy.get("[id=surrendered-sign]").should("be.visible");
     cy.get("[id=endorsement-chain-button]").click();
     cy.wait(60000);
