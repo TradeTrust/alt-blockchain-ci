@@ -30,7 +30,6 @@ export const extractTokenRegistryFactoryAddress = (result) =>
 export const extractDomainName = (result) => {
     const content = extractText(result, [["✔  success   Record created at ", ""], [" and will stay valid until ",";"]]);
     const domainName = content.split(";")[0];
-    console.log(domainName);
     return domainName;
 }
     
@@ -43,7 +42,6 @@ export const extractText = (result, query) => {
     const back = query[1];
 
     const splitResults = result.trim().split("\n");
-    console.log(splitResults);
     for (let count = 0; count < splitResults.length; count++) {
       const line = splitResults[count].trim();
       const containsQueriedString = line.includes(front[0]) && line.includes(back[0]);
