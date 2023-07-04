@@ -18,6 +18,7 @@ describe("Endorse Transfer of Ownership/Holdership", () => {
     cy.get("[data-testid='editable-input-owner']").type(ACCOUNT_3);
     cy.get("[data-testid='editable-input-holder']").type(ACCOUNT_3);
     cy.get("[data-testid='endorseTransferBtn']").click();
+    cy.wait(10000);
     cy.confirmMetamaskTransaction();
     cy.get("[data-testid='non-editable-input-owner']").should("have.text", ACCOUNT_3);
     cy.get("[data-testid='non-editable-input-owner']").should("have.text", ACCOUNT_3);

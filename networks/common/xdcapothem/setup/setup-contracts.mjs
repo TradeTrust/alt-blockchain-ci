@@ -15,7 +15,7 @@ const ChainInfo = {
 // Keys && Address
 // const mnemonic = process.env.APOTHEM_MNEMONIC;
 
-const mnemonic = "animal lyrics refuse dentist theme avoid left nerve retire piece eternal rubber"
+const mnemonic = "indicate swing place chair flight used hammer soon photo region volume shuffle"
 // console.log(mnemonic)
 if (!mnemonic) {
   throw new Error(`MNEMONIC not found: ${mnemonic}`);
