@@ -35,7 +35,7 @@
     "network:dev": "cross-env NET=goerli npm run dev",
     "network:xdcapothem:setup": "node --experimental-modules ./networks/common/xdcapothem/setup/setup-contracts.mjs",
     "network:xdcapothem:metamask": "run-s wait network:xdcapothem:setup network:xdcapothem:synpress",
-    "network:xdcapothem:synpress": "cross-env CYPRESS_RESOURCES_WAIT=1 STABLE_MODE=true SECRET_WORDS='animal lyrics refuse dentist theme avoid left nerve retire piece eternal rubber' NETWORK_NAME='goerli' synpress run --config supportFile='networks/support/index.js',fixturesFolder='networks/fixtures',video=false,screenshotOnRunFailure=false,testIsolation=true,specPattern='networks/specs/**/*.spec.js'",
+    "network:xdcapothem:synpress": "cross-env CYPRESS_RESOURCES_WAIT=1 STABLE_MODE=true SECRET_WORDS='indicate swing place chair flight used hammer soon photo region volume shuffle' NETWORK_NAME='goerli' synpress run --config supportFile='networks/support/index.js',fixturesFolder='networks/fixtures',video=false,screenshotOnRunFailure=false,testIsolation=true,specPattern='networks/specs/**/*.spec.js'",
     "network:xdcapothem:headful": "concurrently -k -s first \"npm:network:metamask\" \"npm:network:dev\"",
     "network:polygon:setup": "node --experimental-modules ./networks/common/polygon/setup/setup-contracts.mjs",
     "network:polygon:metamask": "run-s wait network:polygon:setup network:polygon:synpress",
