@@ -4,7 +4,7 @@ import {
   openAttestationVerifiers,
   verificationBuilder,
   VerificationFragment,
-} from "@govtechsg/oa-verify";
+} from "@gahmen/oa-verify";
 import { providers } from "ethers";
 import { getCurrentProvider } from "../../common/contexts/provider";
 import { NETWORK_NAME } from "../../config";

@@ -7,15 +7,15 @@ const oaCLI_PATH = "open-attestation";
 
 // Network Specific
 const standalone = false ? "--standalone" : "";
-const OACLINetwork = "xdcapothem"
+const OACLINetwork = "xdcapothem";
 const ChainInfo = {
-    $CHAIN: "XDC",
-    $CHAINID: "51",
-}
+  $CHAIN: "XDC",
+  $CHAINID: "51",
+};
 // Keys && Address
 // const mnemonic = process.env.APOTHEM_MNEMONIC;
 
-const mnemonic = "indicate swing place chair flight used hammer soon photo region volume shuffle"
+const mnemonic = "indicate swing place chair flight used hammer soon photo region volume shuffle";
 // console.log(mnemonic)
 if (!mnemonic) {
   throw new Error(`MNEMONIC not found: ${mnemonic}`);
@@ -23,6 +23,7 @@ if (!mnemonic) {
 const wallets = getHDNode(mnemonic);
 const ACCOUNT_KEY = wallets[0].privateKey;
 const ADDRESS_EXAMPLE_1 = wallets[0].address;
+shell.exec(`which ${oaCLI_PATH}`)
 // const tokenRegistryFactoryOutput = shell.exec(`${oaCLI_PATH} deploy title-escrow-factory -n ${OACLINetwork} -k ${ACCOUNT_KEY}`, {
 //   silent: true,
 // });
@@ -30,20 +31,24 @@ const ADDRESS_EXAMPLE_1 = wallets[0].address;
 
 const tokenRegistryOutput = shell.exec(
   // `${oaCLI_PATH} deploy token-registry "DEMO TOKEN REGISTRY" DTR -n ${OACLINetwork} -k ${ACCOUNT_KEY} ${standalone} --factoryAddress ${TITLE_ESCROW_FACTORY_ADDRESS}`,
-  `${oaCLI_PATH} deploy token-registry "DEMO TOKEN REGISTRY" DTR -n ${OACLINetwork} -k ${ACCOUNT_KEY} ${standalone}`,
-  { silent: true }
+  `${oaCLI_PATH} deploy token-registry "DEMO TOKEN REGISTRY" DTR -n ${OACLINetwork} -k ${ACCOUNT_KEY} ${standalone}`
+  // { silent: true }
 );
 const TOKEN_REGISTRY_ADDRESS = extractTokenRegistryAddress(tokenRegistryOutput);
 console.log(`Token Registry Address: ${TOKEN_REGISTRY_ADDRESS}`);
-const dnsCreateOutput = shell.exec(`${oaCLI_PATH} dns txt-record create -a ${TOKEN_REGISTRY_ADDRESS} --networkId ${ChainInfo['$CHAINID']}`,
-{ silent: true });
+const dnsCreateOutput = shell.exec(
+  `${oaCLI_PATH} dns txt-record create -a ${TOKEN_REGISTRY_ADDRESS} --networkId ${ChainInfo["$CHAINID"]}`
+  // { silent: true }
+);
 const DOMAIN_NAME = extractDomainName(dnsCreateOutput);
 console.log(`Domain Name: ${DOMAIN_NAME}`);
 fillTemplate("xdcapothem", { $TOKENREGISTRYADDRESS: TOKEN_REGISTRY_ADDRESS, $DOMAINNAME: DOMAIN_NAME, ...ChainInfo });
-shell.exec(`${oaCLI_PATH} wrap ${"networks/fixtures/xdcapothem/unwrapped/"} --oav3 --output-dir ${"networks/fixtures/xdcapothem/wrapped/"} --batched false`,
-{ silent: true })
-const merkleRoots = getMerkleRoots("xdcapothem")
-console.log(`Merkle Roots: ${merkleRoots}`)
+shell.exec(
+  `${oaCLI_PATH} wrap ${"networks/fixtures/xdcapothem/unwrapped/"} --oav3 --output-dir ${"networks/fixtures/xdcapothem/wrapped/"} --batched false`,
+  // { silent: true }
+);
+const merkleRoots = getMerkleRoots("xdcapothem");
+console.log(`Merkle Roots: ${merkleRoots}`);
 
 const defaultToken = {
   accountKey: ACCOUNT_KEY,
@@ -51,7 +56,7 @@ const defaultToken = {
   owner: ADDRESS_EXAMPLE_1,
   holder: ADDRESS_EXAMPLE_1,
 };
-console.log(`Default Token: ${JSON.stringify(defaultToken)}`)
+console.log(`Default Token: ${JSON.stringify(defaultToken)}`);
 merkleRoots.forEach((hash) => {
   shell.exec(
     `${oaCLI_PATH} token-registry issue --beneficiary ${defaultToken.owner} --holder ${defaultToken.holder} --address ${defaultToken.tokenRegistryAddress} --tokenId ${hash} -n ${OACLINetwork} -k ${defaultToken.accountKey}`,

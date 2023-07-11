@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { VerificationFragment } from "@govtechsg/oa-verify";
+import { VerificationFragment } from "@gahmen/oa-verify";
 import { CONSTANTS, interpretFragments } from "@govtechsg/tradetrust-utils";
 import { StatusCheck } from "./StatusCheck";
 

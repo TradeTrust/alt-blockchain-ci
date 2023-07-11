@@ -1210,7 +1210,7 @@ SOFTWARE.
 -------------------------------------------------------------------------------
 
 ## Project
-@govtechsg/oa-verify
+@gahmen/oa-verify
 
 ### Source
 https://github.com/Open-Attestation/oa-verify
@@ -1636,7 +1636,7 @@ https://github.com/Open-Attestation/open-attestation
 -------------------------------------------------------------------------------
 
 ## Project
-@govtechsg/open-attestation-cli
+@gahmen/open-attestation-cli
 
 ### Source
 https://github.com/Open-Attestation/open-attestation-cli
@@ -1848,7 +1848,7 @@ https://github.com/Open-Attestation/open-attestation-cli
 -------------------------------------------------------------------------------
 
 ## Project
-@govtechsg/token-registry
+@gahmen/token-registry
 
 ### Source
 https://github.com/Open-Attestation/token-registry
