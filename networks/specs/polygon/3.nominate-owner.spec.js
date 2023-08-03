@@ -1,5 +1,5 @@
 // TO CHECK
-import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "../utils";
+import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "./addresses";
 
 describe("Transfer Owner", () => {
   it("should go to verify page, upload a file, connect to wallet and transfer holder successfully", () => {

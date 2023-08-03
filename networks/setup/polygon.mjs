@@ -1,6 +1,6 @@
 import shell from "shelljs";
-import { getHDNode } from "../../keys.mjs";
-import { fillTemplate, extractTokenRegistryAddress, extractDomainName, getMerkleRoots } from "../../template.mjs";
+import { getHDNode } from "./utils/keys.mjs";
+import { fillTemplate, extractTokenRegistryAddress, extractDomainName, getMerkleRoots } from "./utils/template.mjs";
 
 const oaCLI_PATH = "open-attestation";
 

@@ -1,22 +1,20 @@
 // require('dotenv').config({ path: __dirname+'/.env' });
 import shell from "shelljs";
-import { getHDNode } from "../../keys.mjs";
-import { fillTemplate, extractTokenRegistryAddress, extractDomainName, getMerkleRoots } from "../../template.mjs";
+import { getHDNode } from "./utils/keys.mjs";
+import { fillTemplate, extractTokenRegistryAddress, extractDomainName, getMerkleRoots } from "./utils/template.mjs";
 
 const oaCLI_PATH = "open-attestation";
 
 // Network Specific
-const standalone = false ? "--standalone" : "";
+const standalone = true ? "--standalone" : "";
 const OACLINetwork = "xdcapothem";
 const ChainInfo = {
   $CHAIN: "XDC",
   $CHAINID: "51",
 };
-// Keys && Address
-// const mnemonic = process.env.APOTHEM_MNEMONIC;
 
-const mnemonic = "indicate swing place chair flight used hammer soon photo region volume shuffle";
-// console.log(mnemonic)
+// Keys && Address
+const mnemonic = process.env.SECRET_WORDS;
 if (!mnemonic) {
   throw new Error(`MNEMONIC not found: ${mnemonic}`);
 }

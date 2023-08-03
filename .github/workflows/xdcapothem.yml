@@ -1,6 +1,10 @@
-name: Synpress
+name: XDCApothem
 
-on: [push]
+on: 
+  schedule:
+    - cron: '0 22 * * *' # every day at 10pm
+  push:
+  workflow_dispatch: # on button click
 
 jobs:
   synpress:
@@ -23,5 +27,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
       - name: Run e2e tests
-        run: docker-compose --file network-compose.yml up --build --exit-code-from synpress
+        run: export SECRET_WORDS="${{ secrets.SECRET_WORDS }}" && docker-compose --file networks/docker/xdcapothem.yml up --build --exit-code-from synpress
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { TradeTrustToken__factory } from "@gahmen/token-registry/contracts";
-import { TradeTrustToken } from "@gahmen/token-registry/contracts";
+import { TradeTrustToken__factory } from "@govtechsg/token-registry/contracts";
+import { TradeTrustToken } from "@govtechsg/token-registry/contracts";
 import { providers, Signer } from "ethers";
 
 export const useTokenRegistryContract = (

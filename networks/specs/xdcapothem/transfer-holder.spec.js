@@ -1,4 +1,4 @@
-import { ACCOUNT_2 } from "../utils";
+import { ACCOUNT_2 } from "./addresses";
 
 describe("Transfer Holder", () => {
   it("should go to verify page, upload a file, connect to wallet and transfer holder successfully", () => {

@@ -1,5 +1,4 @@
-import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "../utils";
-const originAccount = "0x8d366250A96deBE81C8619459a503a0eEBE33ca6"
+import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3, ORIGIN_ACCOUNT } from "./addresses";
 
 describe("Reading of Mumbai Network", () => {
   it("should be able to view escrow information", () => {
@@ -8,8 +7,8 @@ describe("Reading of Mumbai Network", () => {
     cy.get("[data-testid=issue-status]").should("have.text", `Document has been issued`);
     cy.get("[data-testid=identity-status]").should("have.text", `Document issuer has been identified`);
     cy.get("[data-testid=hash-status]").should("have.text", `Document has not been tampered with`);
-    cy.get("[data-testid='asset-title-owner']").should("have.text", `Owner:${originAccount}`);
-    cy.get("[data-testid='asset-title-holder']").should("have.text", `Holder:${originAccount}`);
+    cy.get("[data-testid='asset-title-owner']").should("have.text", `Owner:${ORIGIN_ACCOUNT}`);
+    cy.get("[data-testid='asset-title-holder']").should("have.text", `Holder:${ORIGIN_ACCOUNT}`);
   });
 
   it("should be able to view surrendered escrow information", () => {
@@ -20,8 +19,8 @@ describe("Reading of Mumbai Network", () => {
     cy.wait(60000);
 
     cy.get("[data-testid='row-event-0'] [data-testid='action-title']").should("have.text", "Document has been issued");
-    cy.get("[data-testid='row-event-0'] [data-testid='row-event-Owner']").should("have.text", `Owner${originAccount}`);
-    cy.get("[data-testid='row-event-0'] [data-testid='row-event-Holder']").should("have.text", `Holder${originAccount}`);
+    cy.get("[data-testid='row-event-0'] [data-testid='row-event-Owner']").should("have.text", `Owner${ORIGIN_ACCOUNT}`);
+    cy.get("[data-testid='row-event-0'] [data-testid='row-event-Holder']").should("have.text", `Holder${ORIGIN_ACCOUNT}`);
 
     cy.get("[data-testid='row-event-1'] [data-testid='action-title']").should("have.text", "Change Owners");
     cy.get("[data-testid='row-event-1'] [data-testid='row-event-Owner']").should("have.text", `Owner${ACCOUNT_1}`);

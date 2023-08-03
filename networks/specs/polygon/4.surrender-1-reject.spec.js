@@ -1,5 +1,4 @@
 describe("Surrender-Reject", () => {
-
   context("Surrender", () => {
     it("should go to verify page, upload a file, connect to wallet and surrender a document successfully", () => {
       cy.switchMetamaskAccount(1); // need to switch to or make sure it is at account 1 as sometimes it will fail when not in account 1
@@ -10,8 +9,8 @@ describe("Surrender-Reject", () => {
       cy.clickConnectAndManageAssetButton();
       cy.get("[data-testid='surrenderDropdown']").click(); // Surrender Document
       cy.get("[data-testid='surrenderBtn']").click();
-      cy.wait(10000)
-    cy.confirmMetamaskTransaction();
+      cy.wait(10000);
+      cy.confirmMetamaskTransaction();
       cy.get("[data-testid='overlay-title']").should("have.text", "Surrender Document Success");
       cy.get("#surrender-sign").should("have.text", "Surrendered To Issuer");
     });
@@ -26,8 +25,8 @@ describe("Surrender-Reject", () => {
       cy.get("[data-testid='rejectSurrenderDropdown']").click(); // Reject Surrender
       cy.get("[data-testid='rejectSurrenderBtn']").click();
       cy.get("[data-testid='confirmActionBtn']").click();
-      cy.wait(10000)
-    cy.confirmMetamaskTransaction();
+      cy.wait(10000);
+      cy.confirmMetamaskTransaction();
       cy.get("[data-testid='overlay-title']").should("have.text", "Surrender Rejected");
     });
   });

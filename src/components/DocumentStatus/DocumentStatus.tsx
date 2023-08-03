@@ -1,4 +1,4 @@
-import { VerificationFragment, VerificationFragmentWithData, utils } from "@gahmen/oa-verify";
+import { VerificationFragment, VerificationFragmentWithData, utils } from "@govtechsg/oa-verify";
 import React, { FunctionComponent } from "react";
 import { StatusChecks } from "./StatusChecks";
 import { useSelector } from "react-redux";

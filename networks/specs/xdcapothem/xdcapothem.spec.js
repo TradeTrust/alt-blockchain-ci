@@ -1,4 +1,4 @@
-import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "../utils";
+import { ACCOUNT_1, ACCOUNT_2, ACCOUNT_3 } from "./addresses";
 const originAccount = "0x09C4183aC99B432c4BA78d354F8d21257bd15aaa"
 
 describe("Reading of XDC Apothem Network", () => {

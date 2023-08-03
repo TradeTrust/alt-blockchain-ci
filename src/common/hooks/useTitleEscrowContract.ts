@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { providers, Signer } from "ethers";
-import { TitleEscrowFactory__factory, TitleEscrow__factory } from "@gahmen/token-registry/contracts";
-import { TitleEscrow } from "@gahmen/token-registry/contracts";
-import { TradeTrustToken } from "@gahmen/token-registry/contracts";
+import { TitleEscrowFactory__factory, TitleEscrow__factory } from "@govtechsg/token-registry/contracts";
+import { TitleEscrow } from "@govtechsg/token-registry/contracts";
+import { TradeTrustToken } from "@govtechsg/token-registry/contracts";
 import { BurnAddress } from "../../constants/chain-info";
 
 interface useTitleEscrowContractProps {

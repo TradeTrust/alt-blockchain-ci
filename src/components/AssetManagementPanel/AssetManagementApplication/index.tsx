@@ -6,7 +6,7 @@ import { AssetManagementActions } from "../AssetManagementActions";
 import { AssetManagementForm } from "../AssetManagementForm";
 import { AssetManagementTags } from "../AssetManagementTags";
 import { DocumentStatus } from "../../DocumentStatus";
-import { constants } from "@gahmen/token-registry";
+import { constants } from "@govtechsg/token-registry";
 import { useTokenRegistryRole } from "../../../common/hooks/useTokenRegistryRole";
 
 interface AssetManagementApplicationProps {

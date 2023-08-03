@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { VerificationFragment } from "@gahmen/oa-verify";
+import { VerificationFragment } from "@govtechsg/oa-verify";
 
 // TODO: from the looks it needs this states, update once demo flow is more confirmed
 interface DemoVerifyState {

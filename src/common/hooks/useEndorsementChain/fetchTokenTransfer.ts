@@ -1,5 +1,5 @@
-import { TradeTrustToken } from "@gahmen/token-registry/contracts";
-import { TypedEvent } from "@gahmen/token-registry/dist/contracts/common";
+import { TradeTrustToken } from "@govtechsg/token-registry/contracts";
+import { TypedEvent } from "@govtechsg/token-registry/dist/contracts/common";
 import { LogDescription } from "ethers/lib/utils";
 import { BurnAddress, InitialAddress } from "../../../constants/chain-info";
 import { TokenTransferEvent, TokenTransferEventType } from "../../../types";

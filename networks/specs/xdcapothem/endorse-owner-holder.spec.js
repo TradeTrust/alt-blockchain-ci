@@ -1,4 +1,4 @@
-import { ACCOUNT_3 } from "../utils";
+import { ACCOUNT_3 } from "./addresses";
 
 before(() => {
   // Import Account 2 0xcDFAcbb428DD30ddf6d99875dcad04CbEFcd6E60
