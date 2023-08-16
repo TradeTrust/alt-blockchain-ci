@@ -16,5 +16,5 @@ export const TEST_NETWORKS = [
   ChainId.Goerli, // Deprecated
   ChainId.Sepolia,
   ChainId.PolygonMumbai,
-  ChainId.XDCAPOTHEM,
+  ChainId.APOTHEM,
 ];

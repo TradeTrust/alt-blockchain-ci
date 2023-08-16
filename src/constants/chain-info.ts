@@ -1,3 +1,5 @@
+import { INFURA_API_KEY } from "../config";
+
 export interface ChainInfoObject {
   label: string;
   iconImage: string;
@@ -37,7 +39,7 @@ export enum ChainId {
 
   // XDC Network
   XDC = 50,
-  XDCAPOTHEM = 51,
+  APOTHEM = 51,
 }
 
 export const ChainInfo: ChainInfo = {
@@ -73,7 +75,7 @@ export const ChainInfo: ChainInfo = {
     networkName: "sepolia",
     networkLabel: "Sepolia",
     explorerUrl: "https://sepolia.etherscan.io",
-    rpcUrl: "https://rpc.sepolia.org",
+    rpcUrl: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
     nativeCurrency: {
       name: "ETH",
       symbol: "sepETH",
@@ -122,9 +124,9 @@ export const ChainInfo: ChainInfo = {
       decimals: 18,
     },
   },
-  [ChainId.XDCAPOTHEM]: {
+  [ChainId.APOTHEM]: {
     label: "XDC Testnet Apothem",
-    chainId: ChainId.XDCAPOTHEM,
+    chainId: ChainId.APOTHEM,
     iconImage: "/static/images/networks/xdc.png",
     networkName: "XDC Testnet Apothem",
     networkLabel: "XDC Testnet Apothem",
