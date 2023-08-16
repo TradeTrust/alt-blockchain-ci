@@ -1,0 +1,31 @@
+name: Failure Notification
+
+on: 
+  push:
+  schedule:
+    - cron: '0 7 * * *' # every day at 7am
+  workflow_dispatch: # on button click
+
+jobs:
+  check:
+    # https://github.com/drptbl/synpress-setup-example/blob/1d980157ef343de54f786e1115e1da590f1ba1d1/.github/workflows/e2e.yml#L49-L102
+    name: check past 7 days failure
+    runs-on: ubuntu-latest
+    steps:
+      - name: install jq
+        run: sudo apt-get install -y jq
+      - id: lastweek
+        name: get 1 week ago date
+        run: echo "lastweek=$(date +%Y-%m-%d -d "1 week ago")" >> $GITHUB_OUTPUT
+      - id: xdcapothem
+        name: retrieve xdcapothem run results
+        run: echo "xdcapothem=$(curl -s 'https://api.github.com/repos/TradeTrust/alt-blockchain-ci/actions/workflows/xdcapothem.yml/runs?branch=master&event=schedule&created=%3E${{steps.lastweek.outputs.lastweek}}&status=failure' | jq '.total_count')" >> $GITHUB_OUTPUT
+      - name: exit
+        if: ${{steps.xdcapothem.outputs.xdcapothem >= 7}}
+        uses: nashmaniac/create-issue-action@v1.2
+        with:
+          title: Test Failure Exceed 7 Times
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: worflow-failed
+          body: Workflow failed
