@@ -13,7 +13,7 @@ const ChainInfo = {
 }
 
 // Keys && Address
-const mnemonic = process.env.POLYGON_MNEMONIC;
+const mnemonic = process.env.SECRET_WORDS;
 if (!mnemonic) {
   throw new Error(`MNEMONIC not found: ${mnemonic}`);
 }
