@@ -7,6 +7,7 @@ services:
     environment:
       - DISPLAY=display:0.0
       - SECRET_WORDS
+      - CYPRESS_ACCOUNT_2_PK
     depends_on:
       - display
     entrypoint: []

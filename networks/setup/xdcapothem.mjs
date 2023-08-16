@@ -1,4 +1,3 @@
-// require('dotenv').config({ path: __dirname+'/.env' });
 import shell from "shelljs";
 import { getHDNode } from "./utils/keys.mjs";
 import { fillTemplate, extractTokenRegistryAddress, extractDomainName, getMerkleRoots } from "./utils/template.mjs";
@@ -21,7 +20,6 @@ if (!mnemonic) {
 const wallets = getHDNode(mnemonic);
 const ACCOUNT_KEY = wallets[0].privateKey;
 const ADDRESS_EXAMPLE_1 = wallets[0].address;
-shell.exec(`which ${oaCLI_PATH}`)
 // const tokenRegistryFactoryOutput = shell.exec(`${oaCLI_PATH} deploy title-escrow-factory -n ${OACLINetwork} -k ${ACCOUNT_KEY}`, {
 //   silent: true,
 // });
@@ -54,7 +52,7 @@ const defaultToken = {
   owner: ADDRESS_EXAMPLE_1,
   holder: ADDRESS_EXAMPLE_1,
 };
-console.log(`Default Token: ${JSON.stringify(defaultToken)}`);
+
 merkleRoots.forEach((hash) => {
   shell.exec(
     `${oaCLI_PATH} token-registry issue --beneficiary ${defaultToken.owner} --holder ${defaultToken.holder} --address ${defaultToken.tokenRegistryAddress} --tokenId ${hash} -n ${OACLINetwork} -k ${defaultToken.accountKey}`,

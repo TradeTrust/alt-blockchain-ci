@@ -37,7 +37,7 @@
     "network:xdcapothem:setup": "node --experimental-modules ./networks/setup/xdcapothem.mjs",
     "network:polygon:synpress": "synpress run --configFile networks/synpress-runfile/polygon.config.js",
     "network:xdcapothem:synpress": "cross-env CYPRESS_RESOURCES_WAIT=1 STABLE_MODE=true NETWORK_NAME='sepolia' synpress run --config supportFile='networks/support/index.js',fixturesFolder='networks/fixtures',video=false,screenshotOnRunFailure=false,testIsolation=true,specPattern='networks/specs/xdcapothem/**.spec.js'",
-    "network:polygon:headful": "SECRET_WORDS='indicate swing place chair flight used hammer soon photo region volume shuffle' CYPRESS_RESOURCES_WAIT=1 STABLE_MODE=true NETWORK_NAME='sepolia' npm run network:polygon:setup && concurrently -k -s first \"npm:network:polygon:synpress\" \"npm:network:dev\"",
+    "network:polygon:headful": "CYPRESS_RESOURCES_WAIT=1 STABLE_MODE=true NETWORK_NAME='sepolia' npm run network:polygon:setup && concurrently -k -s first \"npm:network:polygon:synpress\" \"npm:network:dev\"",
     "network:xdcapothem:headful": "npm run network:xdcapothem:setup && concurrently -k -s first \"npm:network:xdcapothem:synpress\" \"npm:network:dev\"",
     "lint": "eslint ./src --ext .js,.ts,.tsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",

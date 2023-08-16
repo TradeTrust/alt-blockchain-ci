@@ -1,6 +1,8 @@
 describe("Setup", () => {
   it("should setup network and accounts", () => {
-    cy.importMetamaskAccount("0xc58c1ff75001afdca8cecb61b47f36964febe4188b8f7b26252286ecae5a8879");
+    // Import Account
+    const ACCOUNT_2_PK = Cypress.env("ACCOUNT_2_PK"); // Access Environment Variable CYPRESS_ACCOUNT_2_PK
+    cy.importMetamaskAccount(ACCOUNT_2_PK);
     cy.switchMetamaskAccount(1);
     cy.addMetamaskNetwork({
       networkName: "XDC Apothem",
