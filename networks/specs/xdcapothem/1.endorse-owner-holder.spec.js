@@ -1,19 +1,5 @@
 import { ACCOUNT_3 } from "./addresses";
 
-before(() => {
-  // Import Account 2 0xcDFAcbb428DD30ddf6d99875dcad04CbEFcd6E60
-  cy.importMetamaskAccount("0xc58c1ff75001afdca8cecb61b47f36964febe4188b8f7b26252286ecae5a8879");
-  cy.switchMetamaskAccount(1);
-  cy.addMetamaskNetwork({
-    networkName: 'XDC Apothem', 
-    rpcUrl: 'https://apothem.xdcrpc.com', 
-    chainId: '51', 
-    symbol: 'XDC', 
-    blockExplorer: 'https://apothem.xdcscan.io', 
-    isTestnet: true
-  })
-});
-
 describe("Endorse Transfer of Ownership/Holdership", () => {
   it("should endorse transfer of both owner and holder successfully", () => {
     cy.visit("/verify");
