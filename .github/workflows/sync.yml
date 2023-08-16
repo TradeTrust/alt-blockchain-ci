@@ -1,0 +1,20 @@
+name: Sync master with upstream
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # every day at 5am
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.8
+        with:
+          owner: tradetrust
+          repo: tradetrust-website
+          base: master
+          head: master
+          pr_title: Update master from tradetrust/tradetrust-website
+          token: ${{ secrets.PAT }}
